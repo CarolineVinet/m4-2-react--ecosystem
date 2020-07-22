@@ -1,7 +1,7 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import { items } from "../data.js";
+import { items, sellers } from "../data.js";
 
 const MegaDiv = styled.div`
   display: flex;
@@ -47,20 +47,43 @@ const PurchaseButton = styled.button`
   padding: 5px;
   border-radius: 8px;
   align-self: center;
+  margin-top: 20px;
 `;
 
 const VendorInfo = styled.div`
   display: flex;
   flex-direction: row;
+  margin-top: 50px;
 `;
 
-const VendorImage = styled.img``;
+const VendorImage = styled.img`
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+  align-self: center;
+  margin-right: 20px;
+`;
 
-const VendorText = styled.p``;
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const VendorText = styled.p`
+  font-size: 14px;
+  margin-top: 2px;
+`;
+
+const VendorStore = styled.p`
+  font-weight: bold;
+  margin-bottom: 2px;
+  margin-top: 20px;
+`;
 
 const ItemDetails = () => {
   const { itemId } = useParams();
   const selectedFruit = items[itemId]; //data.js line 17 to make sense of this.
+  const vendor = sellers[selectedFruit.sellerId];
 
   return (
     <MegaDiv>
@@ -71,8 +94,11 @@ const ItemDetails = () => {
         <DescriptionText>{selectedFruit.description}</DescriptionText>
         <PurchaseButton>{selectedFruit.price}$ - Buy Now</PurchaseButton>
         <VendorInfo>
-          <VendorImage></VendorImage>
-          <VendorText></VendorText>
+          <VendorImage src={vendor.avatarSrc} alt="vendorpic"></VendorImage>
+          <Wrapper>
+            <VendorStore>{vendor.storeName}</VendorStore>
+            <VendorText>{vendor.description}</VendorText>
+          </Wrapper>
         </VendorInfo>
       </Description>
     </MegaDiv>
