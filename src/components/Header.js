@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -9,7 +9,8 @@ const Wrapper = styled.div`
   a {
     margin: 10px;
     color: black;
-    font-size: 16px;
+    font-weight: bold;
+    font-size: 20px;
     text-decoration: none;
   }
 `;
@@ -29,8 +30,30 @@ const Header = (props) => {
     <Wrapper>
       <PageTitle> Fruit Emporium </PageTitle>
       <SubWrapper>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
+        <NavLink
+          exact
+          to="/"
+          activeClassName="selected"
+          activeStyle={{
+            fontWeight: "bold",
+            color: "pink",
+            textDecoration: "underline",
+          }}
+        >
+          Home
+        </NavLink>
+        <NavLink
+          exact
+          to="/about"
+          activeClassName="selected"
+          activeStyle={{
+            fontWeight: "bold",
+            color: "#eb0ec6",
+            textDecoration: "underline",
+          }}
+        >
+          About
+        </NavLink>
       </SubWrapper>
     </Wrapper>
   );
