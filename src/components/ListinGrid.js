@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const FruitGrid = styled.div`
   display: grid;
@@ -33,7 +34,9 @@ const ListinGrid = ({ sellers, items }) => {
       {dataArray.map((fruit) => {
         return (
           <FruitItemDiv>
-            <FruitImage src={fruit.imageSrc} alt="fruitpic"></FruitImage>
+            <Link to={`/items/${fruit.id}`}>
+              <FruitImage src={fruit.imageSrc} alt="fruitpic"></FruitImage>
+            </Link>
             <FruitName> {fruit.name} </FruitName>
             <FruitLatinName>{fruit.latinName}</FruitLatinName>
           </FruitItemDiv>

@@ -4,6 +4,7 @@ import Header from "./Header.js";
 import Home from "./Home.js";
 import About from "./About.js";
 import { GlobalStyles } from "./GlobalStyles.js";
+import ItemDetails from "./ItemDetails.js";
 
 const App = ({ sellers, items }) => {
   return (
@@ -21,6 +22,7 @@ const App = ({ sellers, items }) => {
         </Route>
         <Route exact path="/items/:itemId">
           Item Page
+          <ItemDetails></ItemDetails>
         </Route>
       </Switch>
     </Router>
