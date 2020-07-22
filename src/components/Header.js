@@ -14,11 +14,13 @@ const Wrapper = styled.div`
   }
 `;
 
+const SubWrapper = styled.div``;
+
 const PageTitle = styled.h1`
   font-size: 40px;
   color: black;
   font-weight: bold;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Raleway;
   justify-content: left;
 `;
 
@@ -26,10 +28,10 @@ const Header = (props) => {
   return (
     <Wrapper>
       <PageTitle> Fruit Emporium </PageTitle>
-      <subWrapper>
+      <SubWrapper>
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
-      </subWrapper>
+      </SubWrapper>
     </Wrapper>
   );
 };
