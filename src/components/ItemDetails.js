@@ -37,7 +37,9 @@ const LatinName = styled.p`
   margin-top: 2px;
 `;
 
-const DescriptionText = styled.p``;
+const DescriptionText = styled.p`
+  max-width: 650px;
+`;
 
 const PurchaseButton = styled.button`
   color: white;
@@ -92,7 +94,11 @@ const ItemDetails = () => {
         <FruitName>{selectedFruit.name}</FruitName>
         <LatinName>{selectedFruit.latinName}</LatinName>
         <DescriptionText>{selectedFruit.description}</DescriptionText>
-        <PurchaseButton>{selectedFruit.price}$ - Buy Now</PurchaseButton>
+        <PurchaseButton>
+          {selectedFruit.quantity >= 1
+            ? `${selectedFruit.price}$ - Buy Now`
+            : "Out of Stock"}
+        </PurchaseButton>
         <VendorInfo>
           <VendorImage src={vendor.avatarSrc} alt="vendorpic"></VendorImage>
           <Wrapper>
